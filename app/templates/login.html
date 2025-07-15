@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <h2>Connexion</h2>
+        <form method="POST">
+            <div class="mb-3">
+                <label class="form-label">Nom d'utilisateur</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Se connecter</button>
+        </form>
+        
+        <div class="mt-3">
+            <small>Comptes de test : admin/admin ou user/password123</small>
+        </div>
+    </div>
+</div>
+{% endblock %}

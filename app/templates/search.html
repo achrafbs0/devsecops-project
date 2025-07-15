@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Recherche</h2>
+<form method="GET">
+    <div class="mb-3">
+        <input type="text" class="form-control" name="q" value="{{ query }}" placeholder="Rechercher un utilisateur">
+    </div>
+    <button type="submit" class="btn btn-primary">Rechercher</button>
+</form>
+
+{% if results %}
+<div class="mt-4">
+    <h4>Résultats :</h4>
+    {% for user in results %}
+    <div class="card mb-2">
+        <div class="card-body">
+            <strong>{{ user[1] }}</strong> - {{ user[3] }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}

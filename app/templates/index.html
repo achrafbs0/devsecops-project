@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <h1 class="text-center">Application DevSecOps Demo</h1>
+        <p class="text-center">Application intentionnellement vulnérable pour démonstration</p>
+        
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5>Vulnérabilités intégrées :</h5>
+                <ul>
+                    <li>SQL Injection</li>
+                    <li>Command Injection</li>
+                    <li>Secrets hardcodés</li>
+                    <li>Configuration non sécurisée</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Se connecter</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 
