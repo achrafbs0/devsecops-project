@@ -58,7 +58,7 @@ jobs:
         uses: returntocorp/semgrep-action@v1
         with:
           config: p/python
-          args: --exit-code 0
+        continue-on-error: true
 
       - name: Install and run Bandit
         run: |
