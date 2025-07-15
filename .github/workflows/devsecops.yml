@@ -66,7 +66,7 @@ jobs:
           bandit -r app/ -f json -o bandit-report.json || true
 
       - name: Upload SAST results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: sast-results
@@ -89,7 +89,7 @@ jobs:
           safety check -r app/requirements.txt --json --output safety-report.json || true
 
       - name: Upload dependency results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: dependency-results
@@ -118,7 +118,7 @@ jobs:
           output: 'trivy-results.sarif'
 
       - name: Upload Trivy scan results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: trivy-results
