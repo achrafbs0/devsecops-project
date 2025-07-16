@@ -1,17 +1,24 @@
+# Utilise une image Python officielle
 FROM python:3.9-slim
 
-# Vulnérabilités intentionnelles pour la démo
-USER root
+# Crée un dossier pour l’app
 WORKDIR /app
 
-# Copier les fichiers de l'application
-COPY app/ .
+# Copie les fichiers requirements
+COPY app/requirements.txt .
 
-# Installer les dépendances
+# Installe les dépendances
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exposer le port
+# Copie tout le code de l’app dans le conteneur
+COPY ./app /app
+
+# Définit la variable d’environnement Flask
+ENV FLASK_APP=app.py
+
+# Expose le port 5000
 EXPOSE 5000
 
-# Démarrer l'application
-CMD ["python", "app.py"]
+# Commande pour démarrer Flask
+CMD ["flask", "run", "--host=0.0.0.0"]
+
